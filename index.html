@@ -9,161 +9,165 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <!-- fontawesome cdn -->
       <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/0ac23ca/css/all.css" rel="stylesheet" type="text/css" />
-      
       <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+      <title>❤️ SellKite - Your Downloads Are Here </title>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
-<title>❤️ SellKite - Your Downloads Are Here </title>
-      
-      <style>
-        .header{
-          background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-        }
-        
- .text-gradient{
-  background: -webkit-linear-gradient(#667eea, #f857a6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
- }
-
- 
-
-.btn-grad {background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%)}
-.btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
- }
-
- .btn-grad-submit{
-  background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%)
- }
- .btn-grad-submit{
-  text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   text-align: center;
- }
-
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
-
-      </style>
    </head>
-   <body style="font-family: 'Poppins', sans-serif;   background-color : white;">
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-        <script>
-            var duration = 15 * 1000;
-var animationEnd = Date.now() + duration;
-var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+   <body style="font-family: Inter;">
 
-function randomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
+            <!-- order details are here -->
+            <input type="hidden" value="{{order_id}}" id="order_id">
+            <input type="hidden" value="{{store_id}}" id="store_id">
+            <!-- ends here -->
 
-var interval = setInterval(function() {
-  var timeLeft = animationEnd - Date.now();
+            
+    <div id="vue-app">
+            
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+      <a :href="brand_url" class="d-flex align-items-center text-dark text-decoration-none" target="_blank">
+        <img :src="brand_logo" class="m-4" height="100px" width="100px">
+        <span class="display-6">{{brand_name}}</span>
+      </a>
+    </header>
+  
+    <h3>Order: #1234</h3>
+    <br/>
+    <small>15th Aug 2022</small>
 
-  if (timeLeft <= 0) {
-    return clearInterval(interval);
-  }
-
-  var particleCount = 50 * (timeLeft / duration);
-  // since particles fall down, start a bit higher than random
-  confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-  confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-}, 250);
-        </script>
-        <!-- company here -->
-
-    
-        <div class=" py-5 text-center border-bottom" style="background-image: linear-gradient( 64.5deg,  rgba(245,116,185,1) 14.7%, rgba(89,97,223,1) 88.7% );">
-            <h1 class="display-4 fw-bold" style="color: white;"> Hey ❤️ , This is Demo Downloads Page </h1>
-            <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4 mt-4 fw-bold" style="color: white;">You can totally ✨ customize the design of this page  , as per your needs !</p>
-            </div>
-        </div>
-
-    <h5 class="text-center mt-5">Note: It's just the preview (demo) of the downloads page , You will not be able to download anything from this page.</h5>
+    <main class="mt-5">
+      <h1 :style="`color:${header_font_color};`">{{header_message}}</h1>
+      <p class="fs-5 col-md-12 mt-4" :style="`color: ${header_font_color};`">
+        {{header_message_optional}}
+      </p>
+  
+      <div class="mb-5 mt-3">
+        
+        <div class="row mt-5 p-3" style="background:whitesmoke;">
+            
+        
+            <div class="col-md-12 mt-3">
+              <div class="card" >
+                <h4 class="card-header" :style="`background-color:${card_background_color};color:${card_font_color};padding: 20px;`">Sample Product A</h4>
+                <div class="card-body">
+                    <div class="container mt-2 mb-3">
+                            <span class="badge bg-primary" :style="`background-color:${badge_background_color}!important; color:${badge_font_color} !important;`">Sample Variant A</span>
+                    </div>
 
 
-        <div class="container mb-5 mt-5">     
-            <div class="row mt-5">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-
-                  <div class="card shadow-lg">
-                    <h5 class="card-header" style="background-image: radial-gradient( circle 941px at 2.6% 6.8%,  rgba(124,74,228,0.81) 15.9%, rgba(249,208,40,0.70) 88.6% ); color: white;">Sample Digital product - A</h5>
-                    <div class="card-body">
-                        <div class="container mt-2 mb-3 text-center">
-                            <span class="badge bg-primary" style="background-color:black !important; color:white !important;">Demo Digital Variant - A</span>
-                        </div>
-      
-                        <div class="card mb-3">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="card-body">
-                                  <h5 class="card-title">Digital - Audio File - Sample Download</h5>
-                                  <a target="_blank" href="#" class="mt-3 btn btn-lg" style="background-color: black; color: white">  📥 Download</a>
-                                </div>
-                              </div>
+                    <div class="card mb-3">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="card-body">
+                              <h5 class="card-title">Sample Audio File - A</h5>
+                              <a target="_blank" href="#" class="mt-3 btn btn-lg" :style="`background-color: ${button_background_color};color:${button_font_color}`">Download</a>
                             </div>
                           </div>
-                    
-                    </div>
-                  </div>
-                </div>
-            </div> 
-            
-            <div class="row mt-5">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-
-                  <div class="card shadow-lg">
-                    <h5 class="card-header" style="background-image: radial-gradient( circle 941px at 2.6% 6.8%,  rgba(124,74,228,0.81) 15.9%, rgba(249,208,40,0.70) 88.6% );; color: white;">Sample Digital product - B</h5>
-                    <div class="card-body">
-                        <div class="container mt-2 mb-3 text-center">
-                            <span class="badge bg-primary" style="background-color:black !important; color:white !important;">Demo Digital Variant - B</span>
                         </div>
-    
-
-                      <!-- THIS ONE IS A LICENSED PRODUCT DEMO-->
-                      <div>
-                        <div class="input-group mb-3">
-                          <input type="text"  class="form-control form-control-lg" placeholder="Add Below License Key Here.." id="entered_{{eligible_product.sellkite_product_id}}">
-                          <button class="btn btn-lg" type="button" style="background-color: black; color: white;">Verify</button>
-                        </div>
-                        <h4 class="text-center" style="background-color: whitesmoke;padding:30px;color:black;border:2px dotted grey;">SAMPLE_LICENSE_KEY</h4>
                       </div>
                     
-                    </div>
-                  </div>
+                    
+
+
                 </div>
-            </div> 
+              </div>
+            </div>
+            
 
+        </div>  
+        
+      </div>
+  
+      <hr class="col-3 col-md-2 mb-5">
+  
+      <div class="row g-5">
+        <div class="col-md-6">
+          <h2>Need Help ?</h2>
+          <p>{{brand_footer}}</p>
+          
         </div>
+  
+      </div>
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+      &copy; {{brand_name}} 2022 - 2023 
+    </footer>
+  </div>
+      </div>
 
-    <nav class="navbar fixed-bottom">
-      <a class="navbar-brand px-4" style="text-decoration: underline;color:white;" target="_blank" href="https://www.sellkite.xyz?ref=download">Powered By: SellKite</a>
-    </nav>
-      
+    
+
+    <script>
+      var app = new Vue({
+      delimiters: ["{{", "}}"],
+      el: '#vue-app',
+      data: {
+            header_background_color: "",
+            header_font_color: "",
+            page_background_color: "",
+            card_background_color: "",
+            card_font_color: "",
+            button_background_color: "",
+            header_message: "Hi, Add Your Greeting Message here",
+            header_message_optional: "Thanks for purchasing the order",
+            button_font_color: "",
+            badge_background_color: "black",
+            badge_font_color: "white",
+            brand_url:"",
+            brand_name:"",
+            brand_logo:"",
+            brand_footer:"",
+      },
+      mounted(){
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+
+          //now let's load the data here
+          const store_url = params.store; 
+          console.log(store_url) // outputs 'yay'
+          console.log("this one is always awesome !");
+          //now do the remaining stuff here please.
+        
+          fetch(`https://app.sellkite.xyz/api/v1/preview/?store=${store_url}`)
+          .then((response) => response.json())
+          .then((data) => {
+
+            console.log(data)
+            if(data.status == 'success'){
+              console.log("this is the api call response")
+              console.log(data.data.page_settings.header_background_color)
+                this.header_background_color = data.data.page_settings.header_background_color;
+                this.header_font_color = data.data.page_settings.header_font_color ;
+                this.card_background_color =  data.data.page_settings.card_background_color;
+                this.card_font_color =  data.data.page_settings.card_font_color;
+                this.button_background_color =  data.data.page_settings.button_background_color;
+                this.header_message = data.data.page_settings.header_message;
+                this.header_message_optional = data.data.page_settings.header_message_optional;
+                this.button_font_color = data.data.page_settings.button_font_color;
+                this.badge_background_color = data.data.page_settings.badge_background_color;
+                this.badge_font_color = data.data.page_settings.badge_font_color;
+
+                this.brand_logo = data.data.email_settings.company_logo;
+                this.brand_name = data.data.email_settings.company_brand;
+                this.brand_url = '/';
+                this.brand_footer = data.data.email_settings.email_footer;
+                
+
+            }
+          });
+
+        
+      }
+      })
+    </script>
+
+  
+
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217181180-1"></script>
       <script>
