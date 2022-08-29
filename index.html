@@ -31,7 +31,7 @@
     <div id="vue-app">
             
 <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <header class="d-flex align-items-center pb-3 mb-5" style="border-bottom: 2px solid white;">
       <a :href="brand_url" class="d-flex align-items-center text-dark text-decoration-none" target="_blank">
         <img :src="brand_logo" class="m-4" height="100px" width="100px">
         <span class="display-6">{{brand_name}}</span>
@@ -50,7 +50,7 @@
   
       <div class="mb-5 mt-3">
         
-        <div class="row mt-5 p-3" style="background:whitesmoke;">
+        <div class="row mt-5 p-3">
             
         
             <div class="col-md-12 mt-3">
@@ -131,7 +131,9 @@
         });
 
           //now let's load the data here
-          const store_url = params.store; 
+          const store_url = params.store;
+          const ref = params.ref;
+
           console.log(store_url) // outputs 'yay'
           console.log("this one is always awesome !");
           //now do the remaining stuff here please.
@@ -149,8 +151,19 @@
                 this.card_background_color =  data.data.page_settings.card_background_color;
                 this.card_font_color =  data.data.page_settings.card_font_color;
                 this.button_background_color =  data.data.page_settings.button_background_color;
-                this.header_message = data.data.page_settings.header_message;
-                this.header_message_optional = data.data.page_settings.header_message_optional;
+                
+                if(ref == 'listing'){
+                  this.header_message = 'Thank you so much. It means a lot for us ! ❤️'
+                }else{
+                  this.header_message = data.data.page_settings.header_message;
+                }
+                
+                if (ref == 'listing'){
+                  this.header_message_optional = '🎉 We are super excited to welcome you to our Iphone Family. Thanks for purchasing your order. Feel Free to share your updates on #AppleFun Twitter.'
+                }else{
+                  this.header_message_optional = data.data.page_settings.header_message_optional;
+                }
+                
                 this.button_font_color = data.data.page_settings.button_font_color;
                 this.badge_background_color = data.data.page_settings.badge_background_color;
                 this.badge_font_color = data.data.page_settings.badge_font_color;
