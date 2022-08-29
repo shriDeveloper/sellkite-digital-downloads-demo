@@ -102,8 +102,8 @@
   </div>
       </div>
 
-    
-
+     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+        
     <script>
       var app = new Vue({
       delimiters: ["{{", "}}"],
@@ -137,6 +137,26 @@
           console.log(store_url) // outputs 'yay'
           console.log("this one is always awesome !");
           //now do the remaining stuff here please.
+         
+         if(ref == 'listing'){
+            
+            var duration = 15 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+              var particleCount = 50 * (timeLeft / duration);
+              // since particles fall down, start a bit higher than random
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);  
+         }
         
           fetch(`https://app.sellkite.xyz/api/v1/preview/?store=${store_url}`)
           .then((response) => response.json())
@@ -153,13 +173,13 @@
                 this.button_background_color =  data.data.page_settings.button_background_color;
                 
                 if(ref == 'listing'){
-                  this.header_message = 'Thank you so much. It means a lot for us ! ❤️'
+                  this.header_message = 'You can totally customize downloads page. ❤️'
                 }else{
                   this.header_message = data.data.page_settings.header_message;
                 }
                 
                 if (ref == 'listing'){
-                  this.header_message_optional = '🎉 We are super excited to welcome you to our Iphone Family. Thanks for purchasing your order. Feel Free to share your updates on #AppleFun Twitter.'
+                  this.header_message_optional = '🎉 We offer a lot of customizations for free on our Paid Plan. Let us know ! '
                 }else{
                   this.header_message_optional = data.data.page_settings.header_message_optional;
                 }
