@@ -17,10 +17,7 @@
 
    </head>
 
-   <body style="font-family: Inter; background-image:    url(https://products.ls.graphics/mesh-gradients/images/55.-My-Pink.jpg);
-    background-size:     cover;                      
-    background-repeat:   no-repeat;
-    background-position: center center;">
+   <body :style="`font-family: Inter;background-color:${page_background_color};${additionalCSS}`">
 
             <!-- order details are here -->
             <input type="hidden" value="{{order_id}}" id="order_id">
@@ -31,10 +28,10 @@
     <div id="vue-app">
             
 <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-5" style="border-bottom: 2px solid white;">
+    <header class="d-flex align-items-center pb-3 mb-5" :style="`border-bottom: 2px solid white;background-color:${header_background_color};`">
       <a :href="brand_url" class="d-flex align-items-center text-dark text-decoration-none" target="_blank">
         <img :src="brand_logo" class="m-4" height="100px" width="100px">
-        <span class="display-6">{{brand_name}}</span>
+        <span class="display-6" :style="`color:${brand_name_font_color};`">{{brand_name}}</span>
       </a>
     </header>
   
@@ -44,7 +41,7 @@
 
     <main class="mt-5">
       <h1 :style="`color:${header_font_color};`">{{header_message}}</h1>
-      <p class="fs-5 col-md-12 mt-4" :style="`color: ${header_font_color};`">
+      <p class="fs-5 col-md-12 mt-4" :style="`color: ${sub_header_font_color};`">
         {{header_message_optional}}
       </p>
   
@@ -124,6 +121,8 @@
             brand_name:"",
             brand_logo:"",
             brand_footer:"",
+            sub_header_font_color:"",
+	    brand_name_font_color:"",
       },
       mounted(){
         const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -171,7 +170,10 @@
                 this.card_background_color =  data.data.page_settings.card_background_color;
                 this.card_font_color =  data.data.page_settings.card_font_color;
                 this.button_background_color =  data.data.page_settings.button_background_color;
-                
+                this.sub_header_font_color = data.data.page_settings.sub_header_font_color;
+                this.additionalCSS = data.data.page_settings.additional_css;
+                this.brand_name_font_color = data.data.brand_name_font_color;
+
                 if(ref == 'listing'){
                   this.header_message = 'You can totally customize downloads page. ❤️'
                 }else{
