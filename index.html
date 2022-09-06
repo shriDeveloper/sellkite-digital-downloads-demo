@@ -27,7 +27,7 @@
             
     <div id="vue-app">
             
-	    <div class="container" style="position:fixed;top:50%;">
+	    <div class="container" v-if="isLoaderOn">
 		    <div class="row text-center">
 		    	<div class="col-md-12">
 		    		<img src="roller-loading-transparent.gif">
@@ -114,6 +114,7 @@
       delimiters: ["{{", "}}"],
       el: '#vue-app',
       data: {
+	    isLoaderOn:true,
             header_background_color: "",
             header_font_color: "",
             page_background_color: "",
@@ -164,13 +165,16 @@
               confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
             }, 250);  
          }
-        
+	      
+	  
           fetch(`https://app.sellkite.xyz/api/v1/preview/?store=${store_url}`)
           .then((response) => response.json())
           .then((data) => {
 
             console.log(data)
             if(data.status == 'success'){
+
+	      this.isLoaderOn = false;
               console.log("this is the api call response")
               console.log(data.data.page_settings.header_background_color)
                 this.header_background_color = data.data.page_settings.header_background_color;
