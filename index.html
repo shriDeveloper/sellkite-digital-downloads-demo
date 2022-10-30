@@ -17,7 +17,7 @@
 
    </head>
 
-   <body :style="`font-family: Inter;background-color:${page_background_color};${additionalCSS}`">
+   <body id="bodyID">
 
             <!-- order details are here -->
             <input type="hidden" value="{{order_id}}" id="order_id">
@@ -106,7 +106,8 @@
       </div>
 
      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-        
+     
+
     <script>
       var app = new Vue({
       delimiters: ["{{", "}}"],
@@ -129,6 +130,8 @@
             brand_logo:"",
             brand_footer:"",
             sub_header_font_color:"",
+            fontFamily:'',
+            bodyFontFamily:'',
 	    brand_name_font_color:"",
       },
       mounted(){
@@ -185,6 +188,10 @@
                 this.brand_name_font_color = data.data.page_settings.brand_name_font_color;
                 this.page_background_color = data.data.page_settings.page_background_color;
 
+                console.log("Page background color");
+                console.log(this.page_background_color);
+
+
                 if(ref == 'listing'){
                   this.header_message = 'You can totally customize downloads page. ❤️'
                 }else{
@@ -204,7 +211,23 @@
                 this.brand_logo = data.data.email_settings.company_logo;
                 this.brand_name = data.data.email_settings.company_brand;
                 this.brand_url = '/';
+                this.fontFamily = data.data.page_settings.fontFamily.trim().split(' ').join('+')
+                this.bodyFontFamily = data.data.page_settings.fontFamily.trim()
                 this.brand_footer = data.data.email_settings.email_footer;
+
+
+                //add the link here
+                var link = document.createElement( "link" );
+                link.href = `https://fonts.googleapis.com/css2?family=${this.fontFamily}&display=swap`;
+                link.type = "text/css";
+                link.rel = "stylesheet";
+                document.getElementsByTagName( "head" )[0].appendChild( link );
+
+                //attach the fontFamily & color here here
+                const body = document.getElementById("bodyID")
+                body.style.fontFamily = this.bodyFontFamily;
+                body.style.backgroundColor = this.page_background_color;
+                
                 
 
             }
