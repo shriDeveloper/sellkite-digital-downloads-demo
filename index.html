@@ -38,7 +38,7 @@
 <div class="col-lg-8 mx-auto p-3 py-md-5">
     <header class="d-flex align-items-center pb-3 mb-5" :style="`border-bottom: 2px solid white;background-color:${header_background_color};`">
       <a :href="brand_url" class="d-flex align-items-center text-dark text-decoration-none" target="_blank">
-        <img :src="brand_logo" class="m-4" height="100px" width="100px">
+        <img :src="brand_logo" class="m-4" :height=brand_logo_height :width=brand_logo_width>
         <span class="display-6" :style="`color:${brand_name_font_color};`">{{brand_name}}</span>
       </a>
     </header>
@@ -133,6 +133,8 @@
             fontFamily:'',
             bodyFontFamily:'',
 	    brand_name_font_color:"",
+	    brand_logo_height:"",
+	    brand_logo_width:"",
       },
       mounted(){
         const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -214,7 +216,11 @@
                 this.fontFamily = data.data.page_settings.fontFamily.trim().split(' ').join('+')
                 this.bodyFontFamily = data.data.page_settings.fontFamily.trim()
                 this.brand_footer = data.data.email_settings.email_footer;
-
+		
+		//this is the image height & width
+		this.brand_logo_height = data.data.email_settings.image_height
+		this.brand_logo_width = data.data.email_settings.image_width
+		    
 
                 //add the link here
                 var link = document.createElement( "link" );
