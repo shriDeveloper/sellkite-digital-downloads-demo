@@ -1,251 +1,295 @@
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="icon" href="https://cdn.shopify.com/app-store/listing_images/c11eb65a82601456f3ead7a3a6e227d4/icon/CIfkj6DUsfUCEAE=.png">
+      <link rel="icon" href="{{brand_logo}}">
       <!-- Bootstrap CSS -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <!-- fontawesome cdn -->
       <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/0ac23ca/css/all.css" rel="stylesheet" type="text/css" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
-      <title>❤️ SellKite - Your Downloads Are Here </title>
+      <title>{{brand_name|title}} - Your Downloads Are Here </title>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
+      <style>
+         .goog-te-banner-frame.skiptranslate {
+         display: none !important;
+         }
+         body {
+         top: 0px !important;
+         }
+         .goog-te-gadget{
+         color: white !important;
+         }
+         
+      </style>
    </head>
-
    <body id="bodyID">
-
-            <!-- order details are here -->
-            <input type="hidden" value="{{order_id}}" id="order_id">
-            <input type="hidden" value="{{store_id}}" id="store_id">
-            <!-- ends here -->
-
-            
-    <div id="vue-app">
-            
+      <!-- order details are here -->
+      <input type="hidden" value="{{order_id}}" id="order_id">
+      <input type="hidden" value="{{store_id}}" id="store_id">
+      <!-- ends here -->
+      <!-- google translate code here -->
+      <!-- ends here -->
+      <div id="vue-app">
+        
 	    <div class="container" v-if="isLoaderOn">
 		    <div class="row text-center">
 		    	<div class="col-md-12" style="display: flex;justify-content: center;">
-		    		<img src="roller-loading-transparent.gif">
+		    		<img src="https://cdn.jsdelivr.net/gh/shriDeveloper/sellkite-digital-downloads-demo/roller-loading-transparent.gif">
 		    	</div>
 		    </div>
 	    </div>
-	    
-<div class="col-lg-8 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-5" :style="`border-bottom: 2px solid white;background-color:${header_background_color};`">
-      <a :href="brand_url" class="d-flex align-items-center text-dark text-decoration-none" target="_blank">
-        <img :src="brand_logo" class="m-4" :height=brand_logo_height :width=brand_logo_width>
-        <span class="display-6" :style="`color:${brand_name_font_color};`">{{brand_name}}</span>
-      </a>
-    </header>
-  
-    <h3>Order: #1234</h3>
-    <br/>
-    <small>15th Aug 2022</small>
 
-    <main class="mt-5">
-      <h1 :style="`color:${header_font_color};`">{{header_message}}</h1>
-      <p class="fs-5 col-md-12 mt-4" :style="`color: ${sub_header_font_color};`">
-        {{header_message_optional}}
-      </p>
-  
-      <div class="mb-5 mt-3">
-        
-        <div class="row mt-5 p-3">
-            
-        
-            <div class="col-md-12 mt-3">
-              <div class="card" >
-                <h4 class="card-header" :style="`background-color:${card_background_color};color:${card_font_color};padding: 20px;`">Sample Product A</h4>
-                <div class="card-body">
-                    <div class="container mt-2 mb-3">
-                            <span class="badge bg-primary" :style="`background-color:${badge_background_color}!important; color:${badge_font_color} !important;`">Sample Variant A</span>
-                    </div>
-
-
-                    <div class="card mb-3">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="card-body">
-                              <h5 class="card-title">Sample Audio File - A</h5>
-                              <a target="_blank" href="#" class="mt-3 btn btn-lg" :style="`background-color: ${button_background_color};color:${button_font_color}`">Download</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    
-                    
-
-
-                </div>
-              </div>
+         <!-- new downloads page -->
+         <div class="px-4 py-5  text-center" :style="`background-color:${header_background_color};`">
+            <img class="d-block mx-auto mb-4" :src=brand_logo :height=brand_logo_height :width=brand_logo_width class="m-4">
+            <h1 class="display-4 fw-bold" :style="`color:${brand_name_font_color};`">{{brand_name}}</h1>
+            <div class="mt-4 col-lg-6 mx-auto">
+               <p class="lead mb-4" :style="`color:${brand_name_font_color};`">{{header_message}}</p>
             </div>
+         </div>
+         <!-- ends here -->
+         <div class="col-lg-7 mx-auto p-3 py-md-5">
+            <main class="mt-1">
+               <div class="row">
+                  <div class="col-md-6">
+                     <h2 class="float-start" :style="`color: ${sub_header_font_color};`">Order No: #1234</h2>
+                  </div>
+                  <div class="col-md-6">
+                     <p class="float-end" :style="`color: ${sub_header_font_color};`">12th FEB 2023</p>
+                  </div>
+               </div>
+               <div class="row mt-2">
+                  <div class="col-md-12">
+                     <p class="fs-5 col-md-12 mt-4" :style="`color: ${sub_header_font_color};`">
+                        {{header_message_optional}}
+                     </p>
+                  </div>
+               </div>
+               <div class="mb-5 mt-1">
+                  <div class="row mt-1 p-3">
+                     
+                     <div class="col-md-12 mt-3" v-for="shopify_product in products">
+                        <div class="card" style="border: 0px;" >
+                           <h4 class="card-header" :style="`background-color:${card_background_color};color: ${card_font_color}; padding: 20px;`">                              {{shopify_product.product_title}}</h4>
+                           <div class="card-body">
+                              <div class="container mt-2 mb-3">
+                                 <span class="badge bg-primary" :style="`background-color:${badge_background_color} !important; color:${badge_font_color} !important;`">sample-variant</span>
+                              </div>
+                              
+                              <div class="card mb-3 mt-1" style="background-color: whitesmoke;border:0px;">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="card-body">
+                                          <h5 class="card-title"><i class="fa fa-file" aria-hidden="true"></i> &nbsp; Sample Digital File</h5>
+                                          <a target="_blank" href="#" class="mt-3 btn btn-lg" :style="`background-color: ${button_background_color}; color: ${button_font_color}`"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Download</a>                                             
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               
+               <div class="row g-5">
+                  <div class="col-md-6">
+                     <p :style="`color: ${sub_header_font_color};`">{{brand_footer}}</p>
+                  </div>
+               </div>
+            </main>
+            <footer class="pt-5 my-5 text-white border-top">
+              <span :style="`color: ${sub_header_font_color};font-weight:bold;`"> &copy; {{brand_name}} 2022 - 2023 </span>
+            </footer>
+         </div>
+      </div>
+      <script>
+         var app = new Vue({
+         delimiters: ["{{", "}}"],
+         el: '#vue-app',
+         data: {
+          isLoaderOn:true,
+               header_background_color: "",
+               header_font_color: "",
+               page_background_color: "",
+               card_background_color: "",
+               card_font_color: "",
+               button_background_color: "",
+               header_message: "Hi, Add Your Greeting Message here",
+               header_message_optional: "Thanks for purchasing the order",
+               button_font_color: "",
+               badge_background_color: "black",
+               badge_font_color: "white",
+               brand_url:"",
+               brand_name:"",
+               brand_logo:"",
+               brand_footer:"",
+               sub_header_font_color:"",
+               fontFamily:'',
+               bodyFontFamily:'',
+          brand_name_font_color:"",
+          brand_logo_height:"",
+          brand_logo_width:"",
+          products:[
+                {
+                product_image:"https://images.unsplash.com/photo-1657299143471-231353519c63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                product_title:"Product A",
+                product_sku:"sku-a",
+                product_price:"$234",
+                },
+                {
+                product_image:"https://media.istockphoto.com/id/1224574565/photo/romantic-breakfast-together-in-open-air-in-village.webp?s=612x612&w=is&k=20&c=X7oLrwzqZbBjTmTg3WzJNL5tXkTWuOq4sSzDvhOPR7E=",
+                product_title:"Product B",
+                product_sku:"sku-b",
+                product_price:"$334",
+                },
+                {
+                product_image:"https://media.istockphoto.com/id/1368602623/photo/three-people-on-picnic-among-scattered-plastic-waste.webp?s=612x612&w=is&k=20&c=UKnA2eJZplulv-zLHgxlGAub31zGYEUwGBxjqIcaY34=",
+                product_title:"Product C",
+                product_sku:"sku-c",
+                product_price:"$434",
+                }
+            ]
+         },
+         mounted(){
+           const params = new Proxy(new URLSearchParams(window.location.search), {
+             get: (searchParams, prop) => searchParams.get(prop),
+           });
+   
+             //now let's load the data here
+             const store_url = params.store;
+             const ref = params.ref;
+   
+             const shopify_store_products = []
+             fetch(`https://app.sellkite.xyz/api/v1/email/preview/products?store_url=${store_url}`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Data",data)
+                if(data.status){
+                    this.isLoaderOn = false;
+                    const preview_products = data.products;
+                    preview_products.forEach((product) => {
+                        shopify_store_products.push({
+                            product_image:product.image && product.image.src ? product.image.src : "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
+                            product_title:product.title,
+                            product_sku:product.variants && product.variants.length > 0  ? product.variants[0].sku : "sample-sku",
+                            product_price:product.variants && product.variants.length > 0  ? `$${product.variants[0].price}` : "$100",
+                        })
+                    })
+                    //now finally complete if there's necessity to overwrite shopify_store_products & this.products
+                    if(shopify_store_products.length > 0){
+                        this.products = []
+                        this.products = this.products.concat(shopify_store_products);
+                    }
+                }
+            })
+             console.log(store_url) // outputs 'yay'
+             console.log("this one is always awesome !");
+             //now do the remaining stuff here please.
             
-
-        </div>  
+            if(ref == 'listing'){
+               
+               var duration = 15 * 1000;
+               var animationEnd = Date.now() + duration;
+               var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+               function randomInRange(min, max) {
+                 return Math.random() * (max - min) + min;
+               }
+               var interval = setInterval(function() {
+                 var timeLeft = animationEnd - Date.now();
+                 if (timeLeft <= 0) {
+                   return clearInterval(interval);
+                 }
+                 var particleCount = 50 * (timeLeft / duration);
+                 // since particles fall down, start a bit higher than random
+                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+               }, 250);  
+            }
+            
         
-      </div>
-  
-      <hr class="col-3 col-md-2 mb-5" style="background:whitesmoke;">
-  
-      <div class="row g-5">
-        <div class="col-md-6">
-          <p>{{brand_footer}}</p>
-        </div>
-  
-      </div>
-    </main>
-    <footer class="pt-5 my-5 text-muted border-top">
-      &copy; {{brand_name}} 2022 - 2023 
-    </footer>
-  </div>
-      </div>
-
-     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-     
-
-    <script>
-      var app = new Vue({
-      delimiters: ["{{", "}}"],
-      el: '#vue-app',
-      data: {
-	    isLoaderOn:true,
-            header_background_color: "",
-            header_font_color: "",
-            page_background_color: "",
-            card_background_color: "",
-            card_font_color: "",
-            button_background_color: "",
-            header_message: "Hi, Add Your Greeting Message here",
-            header_message_optional: "Thanks for purchasing the order",
-            button_font_color: "",
-            badge_background_color: "black",
-            badge_font_color: "white",
-            brand_url:"",
-            brand_name:"",
-            brand_logo:"",
-            brand_footer:"",
-            sub_header_font_color:"",
-            fontFamily:'',
-            bodyFontFamily:'',
-	    brand_name_font_color:"",
-	    brand_logo_height:"",
-	    brand_logo_width:"",
-      },
-      mounted(){
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-          get: (searchParams, prop) => searchParams.get(prop),
-        });
-
-          //now let's load the data here
-          const store_url = params.store;
-          const ref = params.ref;
-
-          console.log(store_url) // outputs 'yay'
-          console.log("this one is always awesome !");
-          //now do the remaining stuff here please.
+             fetch(`https://app.sellkite.xyz/api/v1/preview/?store=${store_url}`)
+             .then((response) => response.json())
+             .then((data) => {
+   
+               console.log(data)
+               if(data.status == 'success'){
+   
+            this.isLoaderOn = false;
+                 console.log("this is the api call response")
+                 console.log(data.data.page_settings.header_background_color)
+                   this.header_background_color = data.data.page_settings.header_background_color;
+                   this.header_font_color = data.data.page_settings.header_font_color ;
+                   this.card_background_color =  data.data.page_settings.card_background_color;
+                   this.card_font_color =  data.data.page_settings.card_font_color;
+                   this.button_background_color =  data.data.page_settings.button_background_color;
+                   this.sub_header_font_color = data.data.page_settings.sub_header_font_color;
+                   this.additionalCSS = data.data.page_settings.additional_css;
+                   this.brand_name_font_color = data.data.page_settings.brand_name_font_color;
+                   this.page_background_color = data.data.page_settings.page_background_color;
+   
+                   console.log("Page background color");
+                   console.log(this.page_background_color);
+   
+   
+                   if(ref == 'listing'){
+                     this.header_message = 'You can totally customize downloads page. ❤️'
+                   }else{
+                     this.header_message = data.data.page_settings.header_message;
+                   }
+                   
+                   if (ref == 'listing'){
+                     this.header_message_optional = '🎉 We offer a lot of customizations for free on our Paid Plan. Let us know ! '
+                   }else{
+                     this.header_message_optional = data.data.page_settings.header_message_optional;
+                   }
+                   
+                   this.button_font_color = data.data.page_settings.button_font_color;
+                   this.badge_background_color = data.data.page_settings.badge_background_color;
+                   this.badge_font_color = data.data.page_settings.badge_font_color;
+   
+                   this.brand_logo = data.data.email_settings.company_logo;
+                   this.brand_name = data.data.email_settings.company_brand;
+                   this.brand_url = '/';
+                   this.fontFamily = data.data.page_settings.fontFamily.trim().split(' ').join('+')
+                   this.bodyFontFamily = data.data.page_settings.fontFamily.trim()
+                   this.brand_footer = data.data.email_settings.email_footer;
          
-         if(ref == 'listing'){
-            
-            var duration = 15 * 1000;
-            var animationEnd = Date.now() + duration;
-            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-            function randomInRange(min, max) {
-              return Math.random() * (max - min) + min;
-            }
-            var interval = setInterval(function() {
-              var timeLeft = animationEnd - Date.now();
-              if (timeLeft <= 0) {
-                return clearInterval(interval);
-              }
-              var particleCount = 50 * (timeLeft / duration);
-              // since particles fall down, start a bit higher than random
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-            }, 250);  
+         //this is the image height & width
+         this.brand_logo_height = data.data.page_settings.image_height
+         this.brand_logo_width = data.data.page_settings.image_width
+             
+   
+                   //add the link here
+                   var link = document.createElement( "link" );
+                   link.href = `https://fonts.googleapis.com/css2?family=${this.fontFamily}&display=swap`;
+                   link.type = "text/css";
+                   link.rel = "stylesheet";
+                   document.getElementsByTagName( "head" )[0].appendChild( link );
+   
+                   //attach the fontFamily & color here here
+                   const body = document.getElementById("bodyID")
+                   body.style.fontFamily = this.bodyFontFamily;
+                   body.style.backgroundColor = this.page_background_color;
+                   
+                   
+   
+               }
+             });
+   
+           
          }
-	      
-	  
-          fetch(`https://app.sellkite.xyz/api/v1/preview/?store=${store_url}`)
-          .then((response) => response.json())
-          .then((data) => {
-
-            console.log(data)
-            if(data.status == 'success'){
-
-	      this.isLoaderOn = false;
-              console.log("this is the api call response")
-              console.log(data.data.page_settings.header_background_color)
-                this.header_background_color = data.data.page_settings.header_background_color;
-                this.header_font_color = data.data.page_settings.header_font_color ;
-                this.card_background_color =  data.data.page_settings.card_background_color;
-                this.card_font_color =  data.data.page_settings.card_font_color;
-                this.button_background_color =  data.data.page_settings.button_background_color;
-                this.sub_header_font_color = data.data.page_settings.sub_header_font_color;
-                this.additionalCSS = data.data.page_settings.additional_css;
-                this.brand_name_font_color = data.data.page_settings.brand_name_font_color;
-                this.page_background_color = data.data.page_settings.page_background_color;
-
-                console.log("Page background color");
-                console.log(this.page_background_color);
-
-
-                if(ref == 'listing'){
-                  this.header_message = 'You can totally customize downloads page. ❤️'
-                }else{
-                  this.header_message = data.data.page_settings.header_message;
-                }
-                
-                if (ref == 'listing'){
-                  this.header_message_optional = '🎉 We offer a lot of customizations for free on our Paid Plan. Let us know ! '
-                }else{
-                  this.header_message_optional = data.data.page_settings.header_message_optional;
-                }
-                
-                this.button_font_color = data.data.page_settings.button_font_color;
-                this.badge_background_color = data.data.page_settings.badge_background_color;
-                this.badge_font_color = data.data.page_settings.badge_font_color;
-
-                this.brand_logo = data.data.email_settings.company_logo;
-                this.brand_name = data.data.email_settings.company_brand;
-                this.brand_url = '/';
-                this.fontFamily = data.data.page_settings.fontFamily.trim().split(' ').join('+')
-                this.bodyFontFamily = data.data.page_settings.fontFamily.trim()
-                this.brand_footer = data.data.email_settings.email_footer;
-		
-		//this is the image height & width
-		this.brand_logo_height = data.data.page_settings.image_height
-		this.brand_logo_width = data.data.page_settings.image_width
-		    
-
-                //add the link here
-                var link = document.createElement( "link" );
-                link.href = `https://fonts.googleapis.com/css2?family=${this.fontFamily}&display=swap`;
-                link.type = "text/css";
-                link.rel = "stylesheet";
-                document.getElementsByTagName( "head" )[0].appendChild( link );
-
-                //attach the fontFamily & color here here
-                const body = document.getElementById("bodyID")
-                body.style.fontFamily = this.bodyFontFamily;
-                body.style.backgroundColor = this.page_background_color;
-                
-                
-
-            }
-          });
-
-        
-      }
-      })
-    </script>
-
-  
-
+         })
+       </script>
+   
+     
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217181180-1"></script>
       <script>
@@ -255,6 +299,13 @@
          
          gtag('config', 'UA-217181180-1');
       </script>
+      <!-- GOOGLE TRANSLATE HERE -->
+      <script type="text/javascript">
+         function googleTranslateElementInit() {
+           new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+         }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </body>
